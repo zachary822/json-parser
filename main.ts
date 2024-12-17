@@ -39,10 +39,11 @@ import {
 const isSpace = (x: string): boolean => /[ \n\r\t]/.test(x);
 const space: Parser<List<string>> = manyParser(satisfyP(isSpace));
 
-const isDigit = (x: string) => /\d/.test(x);
+const isDigit = (x: string) => /[0-9]/.test(x);
 const isNonZeroDigit = (x: string) => /[1-9]/.test(x);
-const isUnescapedChar = (a: string) => !/["\\\b\f\n\r\t]/.test(a);
-const isHexDigit = (a: string) => /[0-9A-Fa-f]/.test(a);
+// deno-lint-ignore no-control-regex
+const isUnescapedChar = (a: string) => /[^"\\\u{00}-\u{1F}]/u.test(a);
+const isHexDigit = (a: string) => /[0-9A-F]/.test(a);
 
 const unicodeEscape = fmapParser(
   (xs: List<string>) => String.fromCharCode(parseInt(listToStr(xs), 16)),
