@@ -1,6 +1,8 @@
 # JSON Parser
 
 ```typescript
+import { jsonValue, snd, strToList } from "@fun/json-parser";
+
 const input = strToList('"abc"');
 
 const maybeParse = jsonValue(input);

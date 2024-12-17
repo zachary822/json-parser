@@ -241,3 +241,14 @@ export const jsonValue: Parser<JsonValue> = choice(
     ),
   ),
 );
+
+export {
+  fst,
+  type List,
+  listToStr,
+  type Maybe,
+  type Pair,
+  type Parser,
+  snd,
+  strToList,
+};
