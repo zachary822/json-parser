@@ -43,7 +43,7 @@ const isDigit = (x: string) => /[0-9]/.test(x);
 const isNonZeroDigit = (x: string) => /[1-9]/.test(x);
 // deno-lint-ignore no-control-regex
 const isUnescapedChar = (a: string) => /[^"\\\u{00}-\u{1F}]/u.test(a);
-const isHexDigit = (a: string) => /[0-9A-F]/.test(a);
+const isHexDigit = (a: string) => /[0-9A-Fa-f]/.test(a);
 
 const unicodeEscape = fmapParser(
   (xs: List<string>) => String.fromCharCode(parseInt(listToStr(xs), 16)),

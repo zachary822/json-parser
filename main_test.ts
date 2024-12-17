@@ -1,5 +1,10 @@
 import { assertEquals } from "@std/assert";
-import { assertSpyCallArgs, assertSpyCalls, spy } from "@std/testing/mock";
+import {
+  assertSpyCallArgs,
+  assertSpyCalls,
+  returnsArg,
+  spy,
+} from "@std/testing/mock";
 import { fst, jsonValue, listToStr, snd, strToList } from "./main.ts";
 
 Deno.test("should return null for bad input", () => {
@@ -168,9 +173,9 @@ Deno.test("should return default for string with control codes", () => {
 });
 
 Deno.test("should return default for string with bad unicode escape", () => {
-  const thing = strToList('"ab\\ud83d\\udca9"');
+  const thing = strToList('"ab\\ud83\\udca9"');
 
-  const func = spy();
+  const func = spy(returnsArg(0));
 
   assertEquals(
     jsonValue(thing)(null, (x) => func(snd(x))),
