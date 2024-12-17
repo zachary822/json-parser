@@ -1,7 +1,7 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@fun/parser-combinator@0.2": "0.2.0",
+    "jsr:@fun/parser-combinator@~0.2.1": "0.2.1",
     "jsr:@std/assert@1": "1.0.9",
     "jsr:@std/assert@^1.0.9": "1.0.9",
     "jsr:@std/async@^1.0.9": "1.0.9",
@@ -12,8 +12,8 @@
     "jsr:@std/testing@^1.0.6": "1.0.6"
   },
   "jsr": {
-    "@fun/parser-combinator@0.2.0": {
-      "integrity": "95ec1a4b1b5b81ce933723298fc8b74ea5546535bded1c48c0d48c55aefbe7c0"
+    "@fun/parser-combinator@0.2.1": {
+      "integrity": "f0a317d3d6b85f63d61b4950934f147714274c8fc7862cc34883a05dbee39c18"
     },
     "@std/assert@1.0.9": {
       "integrity": "a9f0c611a869cc791b26f523eec54c7e187aab7932c2c8e8bea0622d13680dcd",
@@ -53,7 +53,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@fun/parser-combinator@0.2",
+      "jsr:@fun/parser-combinator@~0.2.1",
       "jsr:@std/assert@1",
       "jsr:@std/testing@^1.0.6"
     ]
