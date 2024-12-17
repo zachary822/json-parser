@@ -6,6 +6,7 @@ import {
   charP,
   choice,
   Cons,
+  count,
   curry,
   fmapMaybe,
   fmapParser,
@@ -49,19 +50,7 @@ const unicodeEscape = fmapParser(
   (xs: List<string>) => String.fromCharCode(parseInt(listToStr(xs), 16)),
   seqRightParser(
     charP("u"),
-    apParser(
-      apParser(
-        apParser(
-          fmapParser(
-            (a) => (b) => (c) => (d) => Cons(a, Cons(b, Cons(c, pureList(d)))),
-            satisfyP(isHexDigit),
-          ),
-          satisfyP(isHexDigit),
-        ),
-        satisfyP(isHexDigit),
-      ),
-      satisfyP(isHexDigit),
-    ),
+    count(4, satisfyP(isHexDigit)),
   ),
 );
 
