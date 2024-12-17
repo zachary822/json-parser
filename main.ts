@@ -37,7 +37,7 @@ import {
 // helper parsers
 
 const isSpace = (x: string): boolean => /[ \n\r\t]/.test(x);
-export const space: Parser<List<string>> = manyParser(satisfyP(isSpace));
+const space: Parser<List<string>> = manyParser(satisfyP(isSpace));
 
 const isDigit = (x: string) => /\d/.test(x);
 const isNonZeroDigit = (x: string) => /[1-9]/.test(x);
